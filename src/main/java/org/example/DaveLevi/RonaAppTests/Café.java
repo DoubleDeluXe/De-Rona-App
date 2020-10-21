@@ -37,7 +37,12 @@ public class Café {
     }
 
     public void addTafel(Tafel nieuweTafel) {
+        boolean teVeelTafels;
+        teVeelTafels = aantalTafels <= alleTafels.toArray().length;
 //        this.alleTafels = alleTafels;
+        if (teVeelTafels) {
+            throw new TafelListException("Het maximaal aantal tafels is al bereikt");
+        }
         alleTafels.add(nieuweTafel);
     }
 

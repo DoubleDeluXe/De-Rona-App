@@ -9,7 +9,7 @@ public class Tests {
 
     @Test
     void sneltest(){
-        Café hetPaardenhoofd = createCafé("Het Paardenhoofd");
+        Café hetPaardenhoofd = createCafé("Het Paardenhoofd", 0);
            /*
         Special credit to Donnie Bates, Barry McNamee and James Boland for name suggestions.
          */
@@ -17,7 +17,13 @@ public class Tests {
         int julianDay = localDate.getDayOfYear();
         System.out.println(julianDay);
         Tafel t1 = maakEentestTafel();
-        hetPaardenhoofd.addTafel(t1);
+        try {
+
+            hetPaardenhoofd.addTafel(t1);
+        } catch(Exception e) {
+            System.err.println("Er ging iets fout");
+            System.out.println(e);
+        }
         hetPaardenhoofd.printTafels();
     }
 
@@ -37,8 +43,8 @@ public class Tests {
         System.out.println(nr1.getReservering().toString());
     }
 
-    Café createCafé(String naam){
-        Café thatCafé = new Café(naam, 6);
+    Café createCafé(String naam, int aantalTafels){
+        Café thatCafé = new Café(naam, aantalTafels);
         return thatCafé;
     }
 }
