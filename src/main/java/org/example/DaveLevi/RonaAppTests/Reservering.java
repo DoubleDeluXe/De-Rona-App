@@ -25,4 +25,12 @@ public class Reservering{
     public void setTijdslot(int tijdslot) {
         this.tijdslot = tijdslot;
     }
+
+    @Override
+    public String toString() {
+        return "Reservering{" +
+                "julian=" + julian +
+                ", tijdslot=" + tijdslot +
+                '}';
+    }
 }

@@ -1,10 +1,9 @@
 package org.example.DaveLevi.RonaAppTests;
 
-import java.util.Date;
-
 public class Tafel {
 
     int nr;
+    int zitplaatsen;
     Reservering Reservering;
 
     public Tafel(int nr, Reservering resr) {
@@ -20,11 +19,28 @@ public class Tafel {
         this.nr = nr;
     }
 
+    public int getZitplaatsen() {
+        return zitplaatsen;
+    }
+
+    public void setZitplaatsen(int zitplaatsen) {
+        this.zitplaatsen = zitplaatsen;
+    }
+
     public Reservering getReservering() {
         return Reservering;
     }
 
     public void setReservering(Reservering resr) {
         this.Reservering = resr;
+    }
+
+    @Override
+    public String toString() {
+        return "Tafel{" +
+                "nr=" + nr +
+                ", zitplaatsen=" + zitplaatsen +
+                ", Reservering=" + Reservering +
+                '}';
     }
 }
