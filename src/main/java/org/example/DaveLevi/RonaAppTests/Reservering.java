@@ -1,36 +1,38 @@
 package org.example.DaveLevi.RonaAppTests;
 
-public class Reservering{
+import java.time.LocalDate;
+import java.time.LocalTime;
 
-    private int julian;
-    private int tijdslot;
+public class Reservering {
+    private LocalDate datum;
+    private LocalTime tijd;
 
-    public Reservering(int Julian, int tijdslot){
-        setJulian(Julian);
-        setTijdslot(tijdslot);
+    public Reservering(LocalDate datum, LocalTime tijd) {
+        this.datum = datum;
+        this.tijd = tijd;
     }
 
-    public int getJulian() {
-        return julian;
+    public LocalDate getDatum() {
+        return datum;
     }
 
-    public void setJulian(int julian) {
-        this.julian = julian;
+    public void setDatum(LocalDate datum) {
+        this.datum = datum;
     }
 
-    public int getTijdslot() {
-        return tijdslot;
+    public LocalTime getTijd() {
+        return tijd;
     }
 
-    public void setTijdslot(int tijdslot) {
-        this.tijdslot = tijdslot;
+    public void setTijd(LocalTime tijd) {
+        this.tijd = tijd;
     }
 
     @Override
     public String toString() {
         return "Reservering{" +
-                "julian=" + julian +
-                ", tijdslot=" + tijdslot +
+                "datum=" + datum +
+                ", tijd=" + tijd +
                 '}';
     }
 }

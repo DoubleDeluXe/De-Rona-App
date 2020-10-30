@@ -6,8 +6,8 @@ public class Tafel {
     int zitplaatsen;
     Reservering Reservering;
 
-    public Tafel(int nr, Reservering resr) {
-        this.nr = nr;
+    public Tafel(int id, Reservering resr) {
+        this.nr = id;
         this.Reservering = resr;
     }
 

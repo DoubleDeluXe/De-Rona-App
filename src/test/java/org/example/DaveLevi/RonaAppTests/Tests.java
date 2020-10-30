@@ -3,13 +3,20 @@ package org.example.DaveLevi.RonaAppTests;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 
 public class Tests {
 
     @Test
-    void sneltest(){
-        Café hetPaardenhoofd = createCafé("Het Paardenhoofd", 0);
+    void createreserveringTest() {
+        Café hetPaardenhoofd = createCafé("Het Paardenhoofd", 5);
+        hetPaardenhoofd.addTafel(Manager.addReservering());
+    }
+
+    @Test
+    void sneltest() {
+        Café hetPaardenhoofd = createCafé("Het Paardenhoofd", 5);
            /*
         Special credit to Donnie Bates, Barry McNamee and James Boland for name suggestions.
          */
@@ -17,24 +24,22 @@ public class Tests {
         int julianDay = localDate.getDayOfYear();
         System.out.println(julianDay);
         Tafel t1 = maakEentestTafel();
-        try {
-
-            hetPaardenhoofd.addTafel(t1);
-        } catch(Exception e) {
-            System.err.println("Er ging iets fout");
-            System.out.println(e);
-        }
+        hetPaardenhoofd.addTafel(t1);
         hetPaardenhoofd.printTafels();
     }
 
     @Test
-    void testDATE(){
+    void testDATE() {
         Tafel t1 = maakEentestTafel();
-        Manager.checkDATE_Manager(t1);
+//        Manager.checkDATE_Manager(t1);
     }
 
-    Tafel maakEentestTafel(){
-        return Manager.addReservering_Manager();
+    Tafel maakEentestTafel() {
+        LocalDate vandaag = LocalDate.of(2020,2,1);
+        LocalTime time = LocalTime.of(10,0);
+        Reservering resr = new Reservering(vandaag, time);
+        Tafel deTafel = new Tafel(1,resr);
+        return deTafel;
     }
 
     @Test
@@ -43,8 +48,16 @@ public class Tests {
         System.out.println(nr1.getReservering().toString());
     }
 
-    Café createCafé(String naam, int aantalTafels){
+    Café createCafé(String naam, int aantalTafels) {
         Café thatCafé = new Café(naam, aantalTafels);
+        for (int i = 0; i < aantalTafels; i++){
+
+        }
         return thatCafé;
+    }
+
+    @Test
+    void createCafeMetTafelsMetIGLO() {
+
     }
 }
